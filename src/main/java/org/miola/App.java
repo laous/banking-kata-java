@@ -6,6 +6,7 @@ import org.miola.models.Operation;
 import org.miola.utils.CommandLineTable;
 import org.miola.utils.OperationType;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class App
     {
         Scanner sc=new Scanner(System.in);
 
-        Client client = new Client(1,"Oussama Lamnaouer", "lmnouer59@gmail.com","HAHAHAHA");
+        Client client = new Client(1,"Oussama Lamnaouer", "lmnouer59@gmail.com");
         Account account = new Account(1,1,300);
         LinkedList<Operation> operations = new LinkedList<>();
 
@@ -29,7 +30,7 @@ public class App
                             "1- Show your account informations\n"+
                             "2- Show your recent operations\n"+
                             "3- Make an operation\n"+
-                            "4- Exit\n"
+                            "4- Exit"
             );
 
             String received = sc.nextLine();
@@ -62,8 +63,10 @@ public class App
                         print("Enter the amount: ");
                         float amount = sc.nextFloat();
                         account.setBalance(account.getBalance() + amount);
+                        Operation operation = new Operation(1,1,1,type,amount,String.valueOf(LocalDate.now()));
+                        operations.add(operation);
                     }else if(response.equals("2")){
-                        OperationType type = OperationType.DEPOSIT;
+                        OperationType type = OperationType.WITHDRAW;
                         print("Enter the amount: ");
                         float amount = sc.nextFloat();
                         account.setBalance(account.getBalance() - amount);
