@@ -3,6 +3,7 @@ package org.miola.models;
 import org.miola.utils.OperationType;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class Operation {
     private int id;
@@ -10,15 +11,23 @@ public class Operation {
     private int accountId;
     private OperationType type;  // DP | WW
     private float amount;
-    private LocalDate createdAt;
+    private String createdAt;
 
-    public Operation(int id, int clientId, int accountId, OperationType type, float amount) {
+    public Operation(int id, int clientId, int accountId, OperationType type, float amount, String createdAt) {
         this.id = id;
         this.clientId = clientId;
         this.accountId = accountId;
         this.type = type;
         this.amount = amount;
-        this.createdAt = LocalDate.now();
+        this.createdAt = String.valueOf(LocalDate.now());
+    }
+
+    public Operation(int clientId, int accountId, OperationType type, float amount) {
+        this.clientId = clientId;
+        this.accountId = accountId;
+        this.type = type;
+        this.amount = amount;
+        this.createdAt = String.valueOf(LocalDate.now());
     }
 
     public int getId() {
@@ -61,11 +70,11 @@ public class Operation {
         this.amount = amount;
     }
 
-    public LocalDate getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 }
