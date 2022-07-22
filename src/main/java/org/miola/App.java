@@ -22,8 +22,22 @@ public class App
     {
         Scanner sc=new Scanner(System.in);
 
-        Client client = new Client(1,"Oussama", "lmnouer59@gmail.com");
-        Account account = AccountService.getAccountByClientId(1);
+//        Client client = new Client(1,"Oussama", "lmnouer59@gmail.com");
+
+
+        print("Enter your email");
+        String email = sc.nextLine();
+        print("Enter your password");
+        String password = sc.nextLine();
+
+        Client client = AccountService.login(email,password);
+
+        if(client == null){
+            print("Client not found!");
+            System.exit(0);
+        }
+
+        Account account = AccountService.getAccountByClientId(client.getId());
         LinkedList<Operation> operations = OperationService.getAllOperations();
 
         while(true){
@@ -72,6 +86,9 @@ public class App
                         if(OperationService.deposit(operation , account.getBalance())){
                             account.setBalance(account.getBalance() + amount);
                             operations.add(operation);
+                            print("Action performed successfully!");
+                        }else {
+                            print("An error has occured! Please try again!");
                         }
                     }else if(response.equals("2")){
                         String type = "WITHDRAW";
@@ -81,13 +98,14 @@ public class App
                         if(OperationService.withdraw(operation , account.getBalance())){
                             account.setBalance(account.getBalance() - amount);
                             operations.add(operation);
+                            print("Action performed successfully!");
+                        }else {
+                            print("An error has occured! Please try again!");
                         }
                     }
                     break;
                 case "4":
                     System.exit(0);
-                    break;
-                default:
                     break;
 
             }
