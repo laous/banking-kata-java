@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23bf4ec5-66e8-4b5a-a5c5-b8987d161d89" name="Changes" comment="add auth dao">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/miola/dao/OperationDAO.java" afterDir="false" />
+    <list default="true" id="23bf4ec5-66e8-4b5a-a5c5-b8987d161d89" name="Changes" comment="add operation dao">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/miola/services/OperationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/miola/models/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/miola/models/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1658487991689</updated>
       <workItem from="1658487994458" duration="5622000" />
-      <workItem from="1658506411806" duration="3001000" />
+      <workItem from="1658506411806" duration="4081000" />
     </task>
     <task id="LOCAL-00001" summary="remove unused dependencies">
       <created>1658488208493</created>
@@ -137,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658508939285</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add operation dao">
+      <created>1658509746476</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1658509746476</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +168,7 @@
     <MESSAGE value="dummy main" />
     <MESSAGE value="update models" />
     <MESSAGE value="add auth dao" />
-    <option name="LAST_COMMIT_MESSAGE" value="add auth dao" />
+    <MESSAGE value="add operation dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="add operation dao" />
   </component>
 </project>
