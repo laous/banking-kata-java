@@ -3,6 +3,8 @@ package org.miola;
 import org.miola.models.Account;
 import org.miola.models.Client;
 import org.miola.models.Operation;
+import org.miola.services.AccountService;
+import org.miola.services.OperationService;
 import org.miola.utils.CommandLineTable;
 import org.miola.utils.OperationType;
 
@@ -20,9 +22,9 @@ public class App
     {
         Scanner sc=new Scanner(System.in);
 
-        Client client = new Client(1,"Oussama Lamnaouer", "lmnouer59@gmail.com");
-        Account account = new Account(1,1,300);
-        LinkedList<Operation> operations = new LinkedList<>();
+        Client client = new Client(1,"Oussama", "lmnouer59@gmail.com");
+        Account account = AccountService.getAccountByClientId(1);
+        LinkedList<Operation> operations = OperationService.getAllOperations();
 
         while(true){
             print(
@@ -47,7 +49,11 @@ public class App
                     CommandLineTable st2 = new CommandLineTable();
                     st2.setShowVerticalLines(true);
                     st2.setHeaders("Operation", "Amount", "Date");
-                    st2.addRow(client.getName(),client.getEmail(), String.valueOf(account.getBalance()));
+                    for(Operation op:operations){
+                        st2.addRow(String.valueOf(op.getType()), String.valueOf(op.getAmount()), String.valueOf(op.getCreatedAt()));
+                    }
+                    st2.print();
+
                     break;
                 case "3":
                     print(
@@ -59,24 +65,29 @@ public class App
 
                     String response = sc.nextLine();
                     if(response.equals("1")){
-                        OperationType type = OperationType.DEPOSIT;
+                        String type = "DEPOSIT";
                         print("Enter the amount: ");
                         float amount = sc.nextFloat();
-                        account.setBalance(account.getBalance() + amount);
                         Operation operation = new Operation(1,1,1,type,amount,String.valueOf(LocalDate.now()));
-                        operations.add(operation);
+                        if(OperationService.deposit(operation , account.getBalance())){
+                            account.setBalance(account.getBalance() + amount);
+                            operations.add(operation);
+                        }
                     }else if(response.equals("2")){
-                        OperationType type = OperationType.WITHDRAW;
+                        String type = "WITHDRAW";
                         print("Enter the amount: ");
                         float amount = sc.nextFloat();
-                        account.setBalance(account.getBalance() - amount);
+                        Operation operation = new Operation(1,1,1,type,amount,String.valueOf(LocalDate.now()));
+                        if(OperationService.withdraw(operation , account.getBalance())){
+                            account.setBalance(account.getBalance() - amount);
+                            operations.add(operation);
+                        }
                     }
                     break;
                 case "4":
                     System.exit(0);
                     break;
                 default:
-                    print("Unkown action!");
                     break;
 
             }

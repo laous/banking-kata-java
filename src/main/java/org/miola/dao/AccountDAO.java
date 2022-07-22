@@ -1,9 +1,8 @@
 package org.miola.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import org.miola.models.Account;
+
+import java.sql.*;
 
 public class AccountDAO {
     private Connection con;
@@ -31,5 +30,22 @@ public class AccountDAO {
         }
 
         return true;
+    }
+
+    public Account getAccountByClientId(int id){
+        String query = "SELECT * FROM account WHERE clientId like '" + id +"'";
+        Statement stmt ;
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while(rs.next()) {
+                System.out.println("Here");
+                return new Account(rs.getInt("id"), rs.getInt("clientId"), rs.getFloat("balance"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
