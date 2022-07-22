@@ -13,11 +13,16 @@ public class Operation {
     private float amount;
     private String createdAt;
 
-    public Operation(int id, int clientId, int accountId, OperationType type, float amount, String createdAt) {
+    public Operation(int id, int clientId, int accountId, String type, float amount, String createdAt) {
         this.id = id;
         this.clientId = clientId;
         this.accountId = accountId;
-        this.type = type;
+        if(type.equals("DEPOSIT")){
+            this.type = OperationType.DEPOSIT;
+        } else if (type.equals("WITHDRAW")) {
+            this.type = OperationType.WITHDRAW;
+        }
+
         this.amount = amount;
         this.createdAt = String.valueOf(LocalDate.now());
     }

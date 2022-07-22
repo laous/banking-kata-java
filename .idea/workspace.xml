@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23bf4ec5-66e8-4b5a-a5c5-b8987d161d89" name="Changes" comment="update models">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/miola/dao/AuthDAO.java" afterDir="false" />
+    <list default="true" id="23bf4ec5-66e8-4b5a-a5c5-b8987d161d89" name="Changes" comment="add auth dao">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/miola/dao/OperationDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/miola/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/miola/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/miola/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/miola/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/miola/models/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/miola/models/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +37,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -78,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1658487991689</updated>
       <workItem from="1658487994458" duration="5622000" />
-      <workItem from="1658506411806" duration="2387000" />
+      <workItem from="1658506411806" duration="3001000" />
     </task>
     <task id="LOCAL-00001" summary="remove unused dependencies">
       <created>1658488208493</created>
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658507110187</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add auth dao">
+      <created>1658508939285</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658508939285</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +162,7 @@
     <MESSAGE value="add print command line table class" />
     <MESSAGE value="dummy main" />
     <MESSAGE value="update models" />
-    <option name="LAST_COMMIT_MESSAGE" value="update models" />
+    <MESSAGE value="add auth dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="add auth dao" />
   </component>
 </project>
